@@ -7,12 +7,20 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
   } else{
    if(isset($_POST['submit']))
   {
- $cname=$_POST['cname'];
- $section=$_POST['section'];
-$sql="insert into tblclass(ClassName,Section)values(:cname,:section)";
+ $sname=$_POST['sname'];
+ $location=$_POST['location'];
+ $address=$_POST['address'];
+ $cinformation=$_POST['cinformation'];
+ $email=$_POST['email'];
+ 
+$sql="insert into tblschool(sname,Location,address,cinformation,email)values(:sname,:location,:address,:cinformation,:email)";
 $query=$dbh->prepare($sql);
-$query->bindParam(':cname',$cname,PDO::PARAM_STR);
-$query->bindParam(':section',$section,PDO::PARAM_STR);
+$query->bindParam(':sname',$sname,PDO::PARAM_STR);
+$query->bindParam(':location',$location,PDO::PARAM_STR);
+$query->bindParam(':address',$address,PDO::PARAM_STR);
+$query->bindParam(':cinformation',$cinformation,PDO::PARAM_STR);
+$query->bindParam(':email',$email,PDO::PARAM_STR);
+
  $query->execute();
    $LastInsertId=$dbh->lastInsertId();
    if ($LastInsertId>0) {
@@ -76,20 +84,25 @@ echo "<script>window.location.href ='add-school.php'</script>";
                       
                       <div class="form-group">
                         <label for="exampleInputName1">School Name</label>
-                        <input type="text" name="cname" value="" class="form-control" required='true'>
+                        <input type="text" name="sname" value="" class="form-control" required='true'>
                       </div>
-                     <!-- <div class="form-group">
-                        <label for="exampleInputEmail3">Section</label>
-                        <select  name="section" class="form-control" required='true'>
-                          <option value="">Choose Section</option>
-                          <option value="A">A</option>
-                          <option value="B">B</option>
-                          <option value="C">C</option>
-                          <option value="D">D</option>
-                          <option value="E">E</option>
-                          <option value="F">F</option>
-                        </select>
-                      </div>-->
+                      <div class="form-group">
+                        <label for="exampleInputName1">Location</label>
+                        <input type="text" name="location" value="" class="form-control" required='true'>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Address</label>
+                        <input type="text" name="address" value="" class="form-control" required='true'>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Contact information</label>
+                        <input type="text" name="cinformation" value="" class="form-control" required='true'>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">email</label>
+                        <input type="text" name="email" value="" class="form-control" required='true'>
+                      </div>
+                     
                       <button type="submit" class="btn btn-primary mr-2" name="submit">Add</button>
                      
                     </form>

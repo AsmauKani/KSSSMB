@@ -20,12 +20,13 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
   echo '<script>alert("Class has been updated")</script>';
 }
 
+
   ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
    
-    <title>Student  Management System|| Manage Class</title>
+    <title>Student  Management System|| Manage School</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
@@ -53,11 +54,11 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Manage Class </h3>
+              <h3 class="page-title"> Manage School </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Manage Class</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Manage School</li>
                 </ol>
               </nav>
             </div>
@@ -66,7 +67,7 @@ $query->bindParam(':eid',$eid,PDO::PARAM_STR);
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" style="text-align: center;">Manage Class</h4>
+                    <h4 class="card-title" style="text-align: center;">Manage School</h4>
                    
                     <form class="forms-sample" method="post">
                       <?php
@@ -81,11 +82,11 @@ if($query->rowCount() > 0)
 foreach($results as $row)
 {               ?>  
                       <div class="form-group">
-                        <label for="exampleInputName1">Class Name</label>
+                        <label for="exampleInputName1">School Name</label>
                         <input type="text" name="cname" value="<?php  echo htmlentities($row->ClassName);?>" class="form-control" required='true'>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Section</label>
+                        <label for="exampleInputEmail3">Address</label>
                         <select  name="section" class="form-control" required='true'>
                           <option value="<?php  echo htmlentities($row->Section);?>"><?php  echo htmlentities($row->Section);?></option>
                           <option value="A">A</option>

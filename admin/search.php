@@ -52,11 +52,11 @@ $query->execute();
         <div class="main-panel">
           <div class="content-wrapper">
              <div class="page-header">
-              <h3 class="page-title"> Search Student </h3>
+              <h3 class="page-title"> Search Staff </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Search Student</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Search Staff</li>
                 </ol>
               </nav>
             </div>
@@ -66,7 +66,7 @@ $query->execute();
                   <div class="card-body">
                     <form method="post">
                                 <div class="form-group">
-                                   <strong>Search Student:</strong>
+                                   <strong>Search Staff:</strong>
                                    
                                     <input id="searchdata" type="text" name="searchdata" required="true" class="form-control" placeholder="Search by Student ID"></div>
                                
@@ -127,7 +127,7 @@ foreach($results as $row)
                           <tr>
                            
                             <td><?php echo htmlentities($cnt);?></td>
-                            <td><?php  echo htmlentities($row->StuID);?></td>
+                            <td><?php  echo +($row->StuID);?></td>
                             <td><?php  echo htmlentities($row->ClassName);?> <?php  echo htmlentities($row->Section);?></td>
                             <td><?php  echo htmlentities($row->StudentName);?></td>
                             <td><?php  echo htmlentities($row->StudentEmail);?></td>

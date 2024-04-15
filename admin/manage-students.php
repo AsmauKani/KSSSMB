@@ -9,7 +9,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
 if(isset($_GET['delid']))
 {
 $rid=intval($_GET['delid']);
-$sql="delete from tblstudent where ID=:rid";
+$sql="delete from tblstaff where ID=:rid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':rid',$rid,PDO::PARAM_STR);
 $query->execute();
@@ -52,11 +52,11 @@ $query->execute();
         <div class="main-panel">
           <div class="content-wrapper">
              <div class="page-header">
-              <h3 class="page-title"> Manage Students </h3>
+              <h3 class="page-title"> Manage Staff</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"> Manage Students</li>
+                  <li class="breadcrumb-item active" aria-current="page"> Manage Staff</li>
                 </ol>
               </nav>
             </div>
@@ -65,19 +65,18 @@ $query->execute();
                 <div class="card">
                   <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-4">
-                      <h4 class="card-title mb-sm-0">Manage Students</h4>
-                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Students</a>
+                      <h4 class="card-title mb-sm-0">Manage Staff</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Staffs</a>
                     </div>
                     <div class="table-responsive border rounded p-1">
                       <table class="table">
                         <thead>
                           <tr>
                             <th class="font-weight-bold">S.No</th>
-                            <th class="font-weight-bold">Student ID</th>
-                            <th class="font-weight-bold">Student Class</th>
-                            <th class="font-weight-bold">Student Name</th>
-                            <th class="font-weight-bold">Student Email</th>
-                            <th class="font-weight-bold">Admissin Date</th>
+                            <th class="font-weight-bold">Staff ID</th>
+                            <th class="font-weight-bold">Staff Name</th>
+                            <th class="font-weight-bold">Staff Email</th>
+                            <th class="font-weight-bold">Staff school</th>
                             <th class="font-weight-bold">Action</th>
                             
                           </tr>
@@ -92,13 +91,13 @@ $query->execute();
         // Formula for pagination
         $no_of_records_per_page = 15;
         $offset = ($pageno-1) * $no_of_records_per_page;
-       $ret = "SELECT ID FROM tblstudent";
+       $ret = "SELECT ID FROM tblstaff";
 $query1 = $dbh -> prepare($ret);
 $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $total_rows=$query1->rowCount();
 $total_pages = ceil($total_rows / $no_of_records_per_page);
-$sql="SELECT tblstudent.StuID,tblstudent.ID as sid,tblstudent.StudentName,tblstudent.StudentEmail,tblstudent.DateofAdmission,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.ID=tblstudent.StudentClass LIMIT $offset, $no_of_records_per_page";
+$sql="SELECT * FROM tblstaff";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -111,10 +110,10 @@ foreach($results as $row)
                           <tr>
                            
                             <td><?php echo htmlentities($cnt);?></td>
-                            <td><?php  echo htmlentities($row->StuID);?></td>
+                            <td><?php  echo htmlentities($row->StaffID);?></td>
                             <td><?php  echo htmlentities($row->ClassName);?> <?php  echo htmlentities($row->Section);?></td>
-                            <td><?php  echo htmlentities($row->StudentName);?></td>
-                            <td><?php  echo htmlentities($row->StudentEmail);?></td>
+                            <td><?php  echo htmlentities($row->StafftName);?></td>
+                            <td><?php  echo htmlentities($row->StaffEmail);?></td>
                             <td><?php  echo htmlentities($row->DateofAdmission);?></td>
                             <td>
                               <div><a href="edit-student-detail.php?editid=<?php echo htmlentities ($row->sid);?>"><i class="icon-eye"></i></a>

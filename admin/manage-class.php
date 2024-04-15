@@ -9,7 +9,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
 if(isset($_GET['delid']))
 {
 $rid=intval($_GET['delid']);
-$sql="delete from tblclass where ID=:rid";
+$sql="delete from tblschool where ID=:rid";
 $query=$dbh->prepare($sql);
 $query->bindParam(':rid',$rid,PDO::PARAM_STR);
 $query->execute();
@@ -74,8 +74,10 @@ $query->execute();
                           <tr>
                             <th class="font-weight-bold">S.No</th>
                             <th class="font-weight-bold">School Name</th>
-                            <th class="font-weight-bold">Creation Date</th>
-                            <th class="font-weight-bold">Action</th>
+                            <th class="font-weight-bold">location</th>
+                            <th class="font-weight-bold">Address</th>
+                            <th class="font-weight-bold">Contact information</th>
+                            <th class="font-weight-bold">Email</th>
                             
                           </tr>
                         </thead>
@@ -89,13 +91,13 @@ $query->execute();
         // Formula for pagination
         $no_of_records_per_page =15;
         $offset = ($pageno-1) * $no_of_records_per_page;
-       $ret = "SELECT ID FROM tblclass";
+       $ret = "SELECT ID FROM tblschool";
 $query1 = $dbh -> prepare($ret);
 $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $total_rows=$query1->rowCount();
 $total_pages = ceil($total_rows / $no_of_records_per_page);
-$sql="SELECT * from tblclass LIMIT $offset, $no_of_records_per_page";
+$sql="SELECT * from tblschool LIMIT $offset, $no_of_records_per_page";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -108,9 +110,12 @@ foreach($results as $row)
                           <tr>
                            
                             <td><?php echo htmlentities($cnt);?></td>
-                            <td><?php  echo htmlentities($row->ClassName);?></td>
-                            <td><?php  echo htmlentities($row->Section);?></td>
-                            <td><?php  echo htmlentities($row->CreationDate);?></td>
+                            <td><?php  echo htmlentities($row->sname);?></td>
+                            <td><?php  echo htmlentities($row->location);?></td>
+                            <td><?php  echo htmlentities($row->address);?></td>
+                            <td><?php  echo htmlentities($row->cinformation);?></td>
+                            <td><?php  echo htmlentities($row->email);?></td>
+
                             <td>
                               <div><a href="edit-class-detail.php?editid=<?php echo htmlentities ($row->ID);?>"><i class="icon-eye"></i></a>
                                                 || <a href="manage-class.php?delid=<?php echo ($row->ID);?>" onclick="return confirm('Do you really want to Delete ?');"> <i class="icon-trash"></i></a></div>

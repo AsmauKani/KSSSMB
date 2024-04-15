@@ -74,8 +74,8 @@ $query->execute();
                           <tr>
                             <th class="font-weight-bold">S.No</th>
                             <th class="font-weight-bold">Notice Title</th>
-                            <th class="font-weight-bold">Class</th>
-                            <th class="font-weight-bold">Section</th>
+                            <th class="font-weight-bold">School</th>
+                            <th class="font-weight-bold">Address</th>
                             <th class="font-weight-bold">Notice Date</th>
                             <th class="font-weight-bold">Action</th>
                             

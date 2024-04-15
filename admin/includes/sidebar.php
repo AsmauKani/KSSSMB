@@ -51,13 +51,15 @@ foreach($results as $row)
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
-                <span class="menu-title">Students</span>
+                <span class="menu-title">Staffs</span>
                 <i class="icon-people menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="add-students.php">Add Students</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="manage-students.php">Manage Students</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="add-staffs.php">Add Staff</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="manage-students.php">Manage Staff</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="assign_role.php">Assign roles</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="View_assign_role.php">View assign role</a></li>
                 </ul>
               </div>
             </li>
@@ -96,12 +98,12 @@ foreach($results as $row)
                 </ul>
               </div>
             </li>
-              <li class="nav-item">
+             <!-- <li class="nav-item">
               <a class="nav-link" href="between-dates-reports.php">
                 <span class="menu-title">Reports</span>
                 <i class="icon-notebook menu-icon"></i>
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class="nav-link" href="search.php">
                 <span class="menu-title">Search</span>

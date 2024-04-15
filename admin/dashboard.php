@@ -60,9 +60,9 @@ $query1->execute();
 $results1=$query1->fetchAll(PDO::FETCH_OBJ);
 $totclass=$query1->rowCount();
 ?>
-                          <span class="report-title">Total Class</span>
+                          <span class="report-title">Total School</span>
                           <h4><?php echo htmlentities($totclass);?></h4>
-                          <a href="manage-class.php"><span class="report-count"> View Classes</span></a>
+                          <a href="manage-class.php"><span class="report-count"> View School</span></a>
                         </div>
                         <div class="inner-card-icon bg-success">
                           <i class="icon-rocket"></i>
@@ -77,9 +77,9 @@ $query2->execute();
 $results2=$query2->fetchAll(PDO::FETCH_OBJ);
 $totstu=$query2->rowCount();
 ?>
-                          <span class="report-title">Total Students</span>
+                          <span class="report-title">Total Staffs</span>
                           <h4><?php echo htmlentities($totstu);?></h4>
-                          <a href="manage-students.php"><span class="report-count"> View Students</span></a>
+                          <a href="manage-students.php"><span class="report-count"> View Staffs</span></a>
                         </div>
                         <div class="inner-card-icon bg-danger">
                           <i class="icon-user"></i>

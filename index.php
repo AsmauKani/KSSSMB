@@ -53,7 +53,7 @@ include('includes/dbconnection.php');
 </head>
 	<body style="JPG>
 <?php include_once('includes/header.php');?>
-<div class="bann">
+   <div class="" >
   <div  class="container">
   <script src="js/responsiveslides.min.js"></script>
  <script>
@@ -72,9 +72,9 @@ include('includes/dbconnection.php');
         <ul class="rslides" id="slider">
          <li>     
           <h3 style="color:#ffff;">School Management</h3>      
-           <p>Registered Students can Login Here</p>             
+           <p>Registered Staffs can Login Here</p>             
           <div class="readmore">
-          <a href="user/login.php">Student Login<i class="glyphicon glyphicon-menu-right"> </i></a>
+          <a href="user/login.php">Staff Login<i class="glyphicon glyphicon-menu-right"> </i></a>
           </div>
          </li>
 
